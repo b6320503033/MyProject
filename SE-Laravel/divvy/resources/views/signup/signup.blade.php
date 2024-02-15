@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="theme.css" type="text/css">
+</head>
+
+<body class="d-flex flex-column align-items-start m-0 p-0 w-100 h-100" style="	background-image: linear-gradient(to bottom, transparent, transparent);	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+  <nav class="navbar navbar-light d-flex flex-row-reverse bg-dark w-100 h-100" style="	box-shadow: 0px 0px 4px  black, 0px 0px 4px  black;">
+    <div class="container"> <a class="navbar-brand text-primary m-0 p-0" href="{{route('home')}}">
+        <i class="fa d-inline fa-lg fa-circle"></i>
+        <b> Divvy</b>
+      </a>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-pills">
+            <li class="nav-item"> <a href="{{route('login')}}" class="active nav-link">Log in</a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="p-0 vw-100 vh-100 m-0 mt-0 w-100 h-100">
+    <div class="m-0 p-0 w-100 container-fluid bg-primary d-flex flex-column h-100 align-items-center justify-content-center flex-grow-1">
+      <div class="row m-0 p-0 h-100 d-flex flex-row justify-content-center align-items-center flex-grow-1 bg-primary w-100">
+        <div class="w-100 h-100 bg-primary d-flex align-items-center flex-grow-1 justify-content-center flex-column col-md-6">
+          <h3 class="mt-0 d-flex justify-content-center align-items-center">Welcome to</h3>
+          <h1 class="display-1 d-flex justify-content-center align-items-center">Divvy</h1>
+        </div>
+        <div class="w-100 h-100 col-md-6 d-flex flex-column justify-content-center" style="	background-image: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,1));	background-position: top left;	background-size: 100%;	background-repeat: repeat;">
+          <div class="row m-2"></div>
+          <form class="d-flex flex-column align-items-start ml-5 pl-3" action="{{route('register')}}" method="post">
+            @csrf
+            <div class="form-group w-50 d-flex justify-content-center flex-column m-0 ml-4 mb-1"> <label>ชื่อ</label> <input type="text" class="form-control" required="required" placeholder="ชื่อ" name="Account_Firstname"> </div>
+            <div class="form-group w-50 d-flex justify-content-center flex-column m-0 ml-4 mb-3"> <label>นามสกุล</label> <input type="text" class="form-control" required="required" placeholder="นามสกุล" name="Account_Surname"> </div>
+            <div class="form-group w-50 d-flex justify-content-center flex-column m-0 ml-4 mb-3"> <label>วัน/เดือน/ปีเกิด</label> <input type="date" class="form-control" required="required" name="Account_Birthday"> </div>
+            <div class="form-group w-50 d-flex justify-content-center flex-column m-0 ml-4 mb-3"> <label>ชื่อแอคเคาท์ / Username</label> <input type="text" class="form-control" required="required" placeholder="Username" name="Account_Username"> </div>
+            <div class="form-group w-50 d-flex justify-content-center flex-column m-0 ml-4 mb-3"> <label>รหัสผ่าน</label> <input type="password" class="form-control" required="required" placeholder="รหัสผ่าน" name="Account_Password"> </div>
+            <div class="form-group w-50 d-flex justify-content-center flex-column m-0 ml-4 mb-3"> <label>ยืนยันรหัสผ่าน</label> <input type="password" class="form-control" required="required" placeholder="ยืนยันรหัสผ่าน" name="Account_Password_Validation"> </div>
+            <button type="submit" class="btn btn-primary m-0 ml-4">Sign Up</button>
+          </form>
+          @if(session('success')){
+              <b>{{session('success')}}</b>
+            }
+            @endif
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+</body>
+
+</html>
